@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>客服</title>
-<style>
-html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#ededed}
-iframe{width:100%;height:100%;border:0;display:block}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>客服</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; background: #ededed; }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+    </style>
 </head>
 <body>
-<script>
-var s=location.search;
-if(!s||s.indexOf('s=')<0){s='?s=kf0be1dfe3'}
-if(s.indexOf('admin=1')>=0){
-  s=s.replace('&admin=1','').replace('?admin=1&','?').replace('?admin=1','');
-  if(!s||s==='?'){s='?s=kf0be1dfe3'}
-  document.write('<iframe src="http://ceshi.xnany.cn/admin.php'+s+'"></iframe>');
-}else{
-  document.write('<iframe src="http://ceshi.xnany.cn/index.php'+s+'"></iframe>');
-}
-</script>
+    <script>
+        var search = window.location.search;
+        var defaultKefuId = "kf0be1dfe3";
+
+        if (!search || !search.includes('s=')) {
+            search = '?s=' + defaultKefuId;
+        }
+
+        if (search.includes('admin=1')) {
+            var realSearch = search.replace('&admin=1', '').replace('?admin=1&', '?').replace('?admin=1', '');
+            if (realSearch === '' || realSearch === '?') realSearch = '?s=' + defaultKefuId;
+            var target = "https://ceshi.xnany.cn/admin.php" + realSearch;
+            document.write('<iframe src="' + target + '" allow="microphone; camera"></iframe>');
+        } else {
+            var target = "https://ceshi.xnany.cn/index.php" + search;
+            document.write('<iframe src="' + target + '" allow="microphone; camera"></iframe>');
+        }
+    </script>
 </body>
 </html>
