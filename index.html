@@ -21,10 +21,10 @@
         if (search.includes('admin=1')) {
             var realSearch = search.replace('&admin=1', '').replace('?admin=1&', '?').replace('?admin=1', '');
             if (realSearch === '' || realSearch === '?') realSearch = '?s=' + defaultKefuId;
-            var target = "https://ceshi.xnany.cn/admin.php" + realSearch;
+            var target = "https://xiufu.xnany.cn/admin.php" + realSearch;
             document.write('<iframe src="' + target + '" allow="microphone; camera"></iframe>');
         } else {
-            var target = "https://ceshi.xnany.cn/index.php" + search;
+            var target = "https://xiufu.xnany.cn/index.php" + search;
             document.write('<iframe src="' + target + '" allow="microphone; camera"></iframe>');
         }
     </script>
